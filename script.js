@@ -1,4 +1,7 @@
-// Random computer return of "Rock", "Paper", or "Scissors"
+let computerCounter = 0; // keeps track of wins and losses
+let playerCounter = 0;
+
+// Function for random computer return of "Rock", "Paper", or "Scissors"
 
 function computerPlay () {
     let comRandom = Math.random();
@@ -64,24 +67,35 @@ function playRound (playerSelectionLower, computerSelection) {
     if (playerSelectionLower == "rock" && computerSelection == "Rock") 
             {result = 'Rock ties Rock!';}
     else if (playerSelectionLower == "rock" && computerSelection == "Paper") 
-            {result = 'You Lose -- Paper beats Rock!';}
+            {result = 'You Lose -- Paper beats Rock!';
+                computerCounter++;}
     else if (playerSelectionLower == "rock" && computerSelection == "Scissors") 
-            {result = 'You Win! Rock beats Scissors!';}
+            {result = 'You Win! Rock beats Scissors!';
+                playerCounter++;}
     else if (playerSelectionLower == "scissors" && computerSelection == "Scissors") 
             {result = 'Scissors ties Scissors!';}
     else if (playerSelectionLower == "scissors" && computerSelection == "Paper") 
-            {result = 'You Win! Scissors beats Paper!';}
+            {result = 'You Win! Scissors beats Paper!';
+                playerCounter++;}
     else if (playerSelectionLower == "scissors" && computerSelection == "Rock") 
-            {result = 'You Lose -- Rock beats Scissors!';}
+            {result = 'You Lose -- Rock beats Scissors!';
+                computerCounter++;}
     else if (playerSelectionLower == "paper" && computerSelection == "Paper") 
             {result = 'Paper ties Paper!';}
     else if (playerSelectionLower == "paper" && computerSelection == "Rock") 
-            {result = 'You win! Paper beats Rock!';}
+            {result = 'You win! Paper beats Rock!';
+                playerCounter++;}
     else if (playerSelectionLower == "paper" && computerSelection == "Scissors") 
-            {result = 'You Lose -- Scissors beats Paper!';}
+            {result = 'You Lose -- Scissors beats Paper!';
+                computerCounter++;}
     return result;
 
     }
 
 
 game ();
+
+console.log ("You won " + playerCounter + " games and the computer won " +
+                computerCounter + " games.");
+
+
