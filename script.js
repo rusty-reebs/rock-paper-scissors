@@ -1,6 +1,7 @@
 let computerCounter = 0; // keeps track of wins and losses
 let playerCounter = 0;
 
+
 // Function for random computer return of "Rock", "Paper", or "Scissors"
 
 function computerPlay () {
@@ -11,53 +12,66 @@ function computerPlay () {
     return comRandom;
 }
 
-// Function for player selection
 
-function makeChoice () {
-        let choice = prompt("Choose Rock, Paper, or Scissors");
-        choiceLower = choice.toLowerCase();
-        return choiceLower;
-}
+let resultsDiv = document.getElementById("results");
+let scoreDiv = document.getElementById("score");
+let winner = document.createElement('h2')
 
-// Function to play a 5-round game
 
-function game () {
-    // Round 1
-    computerSelection = computerPlay ();
-    yourChoice = makeChoice ();
-    console.log ("Round 1");
-    console.log ("You chose " + yourChoice);
-    console.log ("Computer chose " + computerSelection);
-    console.log (playRound(yourChoice, computerSelection));
-    // Round 2
-    computerSelection = computerPlay ();
-    yourChoice = makeChoice ();
-    console.log ("Round 2");
-    console.log ("You chose " + yourChoice);
-    console.log ("Computer chose " + computerSelection);
-    console.log (playRound(yourChoice, computerSelection));
-    // Round 3
-    computerSelection = computerPlay ();
-    yourChoice = makeChoice ();
-    console.log ("Round 3");
-    console.log ("You chose " + yourChoice);
-    console.log ("Computer chose " + computerSelection);
-    console.log (playRound(yourChoice, computerSelection));
-    // Round 4
-    computerSelection = computerPlay ();
-    yourChoice = makeChoice ();
-    console.log ("Round 4");
-    console.log ("You chose " + yourChoice);
-    console.log ("Computer chose "+ computerSelection);
-    console.log (playRound(yourChoice, computerSelection));
-    // Round 5
-    computerSelection = computerPlay ();
-    yourChoice = makeChoice ();
-    console.log ("Round 5");
-    console.log ("You chose " + yourChoice);
-    console.log ("Computer chose " + computerSelection);
-    console.log (playRound(yourChoice, computerSelection));
-}
+let yourScore = document.getElementById("yourScore");
+let computerScore = document.getElementById("computerScore");
+let showYourScore = document.createElement('p');
+    showYourScore.textContent = playerCounter;
+    yourScore.appendChild(showYourScore);
+let showComputerScore = document.createElement('p');
+    showComputerScore.textContent = computerCounter;
+    computerScore.appendChild(showComputerScore);
+
+// Event listeners
+
+let buttonRock = document.getElementById("rock");
+
+buttonRock.addEventListener("click", () => {
+        playerSelectionLower = "rock";
+        console.log ("You clicked rock");
+        let choiceRock = document.createElement('div');
+        choiceRock.textContent = playRound (playerSelectionLower, computerPlay());
+        resultsDiv.appendChild(choiceRock);
+        showYourScore.textContent = playerCounter;
+        showComputerScore.textContent = computerCounter;
+        /* This shows the winner but will not end the game 
+        if (playerCounter == 5) {
+                winner.textContent = ("Game Over -- YOU WON 5 GAMES!");
+                scoreDiv.appendChild(winner);
+        else if (computerCounter == 5) {
+                winner.textContent = ("Game Over -- COMPUTER WON 5 GAMES!");
+                scoreDiv.appendChild(winner);
+        } */
+})
+
+let buttonPaper = document.getElementById("paper");
+
+buttonPaper.addEventListener("click", () => {
+        playerSelectionLower = "paper";
+        console.log ("You clicked paper");
+        let choicePaper = document.createElement('div');
+        choicePaper.textContent = playRound (playerSelectionLower, computerPlay());
+        resultsDiv.appendChild(choicePaper);
+        showYourScore.textContent = playerCounter;
+        showComputerScore.textContent = computerCounter;
+})
+
+let buttonScissors = document.getElementById("scissors");
+
+buttonScissors.addEventListener("click", () => {
+        playerSelectionLower = "scissors";
+        console.log ("You clicked scissors");
+        let choiceScissors = document.createElement('div');
+        choiceScissors.textContent = playRound (playerSelectionLower, computerPlay());
+        resultsDiv.appendChild(choiceScissors);
+        showYourScore.textContent = playerCounter;
+        showComputerScore.textContent = computerCounter;
+})
 
 
 // Function to play a single round of Rock, Paper, Scissors
@@ -89,13 +103,7 @@ function playRound (playerSelectionLower, computerSelection) {
             {result = 'You Lose -- Scissors beats Paper!';
                 computerCounter++;}
     return result;
-
+    
     }
-
-
-game ();
-
-console.log ("You won " + playerCounter + " games and the computer won " +
-                computerCounter + " games.");
 
 
