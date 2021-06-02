@@ -39,14 +39,15 @@ buttonRock.addEventListener("click", () => {
         resultsDiv.appendChild(choiceRock);
         showYourScore.textContent = playerCounter;
         showComputerScore.textContent = computerCounter;
-        /* This shows the winner but will not end the game 
+        // This shows the winner but will not end the game 
         if (playerCounter == 5) {
                 winner.textContent = ("Game Over -- YOU WON 5 GAMES!");
                 scoreDiv.appendChild(winner);
+        }
         else if (computerCounter == 5) {
                 winner.textContent = ("Game Over -- COMPUTER WON 5 GAMES!");
                 scoreDiv.appendChild(winner);
-        } */
+        }
 })
 
 let buttonPaper = document.getElementById("paper");
@@ -59,6 +60,15 @@ buttonPaper.addEventListener("click", () => {
         resultsDiv.appendChild(choicePaper);
         showYourScore.textContent = playerCounter;
         showComputerScore.textContent = computerCounter;
+        // This shows the winner but will not end the game 
+        if (playerCounter == 5) {
+                winner.textContent = ("Game Over -- YOU WON 5 GAMES!");
+                scoreDiv.appendChild(winner);
+        }
+        else if (computerCounter == 5) {
+                winner.textContent = ("Game Over -- COMPUTER WON 5 GAMES!");
+                scoreDiv.appendChild(winner);
+        }
 })
 
 let buttonScissors = document.getElementById("scissors");
@@ -71,6 +81,15 @@ buttonScissors.addEventListener("click", () => {
         resultsDiv.appendChild(choiceScissors);
         showYourScore.textContent = playerCounter;
         showComputerScore.textContent = computerCounter;
+        // This shows the winner but will not end the game 
+        if (playerCounter == 5) {
+                winner.textContent = ("Game Over -- YOU WON 5 GAMES!");
+                scoreDiv.appendChild(winner);
+        }
+        else if (computerCounter == 5) {
+                winner.textContent = ("Game Over -- COMPUTER WON 5 GAMES!");
+                scoreDiv.appendChild(winner);
+        }
 })
 
 
@@ -97,7 +116,7 @@ function playRound (playerSelectionLower, computerSelection) {
     else if (playerSelectionLower == "paper" && computerSelection == "Paper") 
             {result = 'Paper ties Paper!';}
     else if (playerSelectionLower == "paper" && computerSelection == "Rock") 
-            {result = 'You win! Paper beats Rock!';
+            {result = 'You Win! Paper beats Rock!';
                 playerCounter++;}
     else if (playerSelectionLower == "paper" && computerSelection == "Scissors") 
             {result = 'You Lose -- Scissors beats Paper!';
